@@ -165,3 +165,52 @@ const listapalabras=['hola', 'adios', 'hola', 'gracias', 'hola', 'gracias']
 console.log(contarPalabras(listapalabras))
 
 //8 Filtrar objetos por multiples condiciones 
+function Disponible(productos, categoria){
+    const resultado=[]
+
+    for (let i=0; i<productos.length; i++){
+        const p =productos[i]
+
+        if(productos.categoria === categoria && p.stock){
+            resultado.push(p)
+        }
+    }
+
+    return resultado
+}
+
+const productos=[
+    {nombre: 'Camisa', categoria: 'ropa', stock:10},
+    {nombre: 'Pantalon', categoria: 'ropa', stock: 0},
+    {nombre: 'Televisor', categoria: 'electronica', stock: 5}
+]
+
+console.log(Disponible(productos), 'ropa')
+
+
+// 9 Simular carga con promesa y setTimeout
+function CargarDatos(){
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("Datos cargados correctamente")
+        }, 2000)
+    })
+}
+
+CargarDatos().then((mensaje)=>{
+    console.log(mensaje)
+})
+
+//10 Verificar si todos los elementos cumplen una condicion
+function verificarEdad(edad){
+    for (let i=0; i<edad.length; i++){
+        if (edad[i]<18){
+            return false
+        }
+    }
+    return true
+}
+
+const edad =[19, 25, 35, 17]
+console.log(verificarEdad(edad))
+
